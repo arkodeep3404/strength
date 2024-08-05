@@ -1,4 +1,4 @@
-import { Text, Image, View, Dimensions } from "react-native";
+import { Text, Image, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { field, teams, homescreen } from "../../exports/export";
 
@@ -21,7 +21,7 @@ export default function Tab1() {
           <Text className="absolute text-white text-5xl"> 0-0 </Text>
         </View>
 
-        <View className="">
+        <View>
           <Image
             source={homescreen}
             className="h-[81%] w-full"

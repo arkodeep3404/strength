@@ -1,32 +1,29 @@
-import { Text, Image, View, Dimensions } from "react-native";
+import { Image, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { field, teams, homescreen } from "../../exports/export";
+import { turf, logo1, logo2 } from "../../exports/export";
 
-export default function Tab1() {
+export default function Tab2() {
   return (
     <>
-      <SafeAreaView className="h-full">
-        <View className="flex justify-center items-center">
+      <SafeAreaView>
+        <View>
           <Image
-            source={field}
-            className="w-full h-[250px]"
-            resizeMode="contain"
-          />
-
-          <Image
-            source={teams}
-            className="w-[332px] h-[68px] absolute"
-            resizeMode="contain"
-          />
-          <Text className="absolute text-white text-5xl"> 0-1 </Text>
-        </View>
-
-        <View className="">
-          <Image
-            source={homescreen}
-            className="h-[81%] w-full"
+            source={turf}
+            className="h-full w-full opacity-80"
             resizeMode="stretch"
           />
+          <View className="absolute h-full w-full flex items-center justify-evenly">
+            <Image
+              source={logo1}
+              className="h-[195px] w-[163px]"
+              resizeMode="contain"
+            />
+            <Image
+              source={logo2}
+              className="h-[195px] w-[163px]"
+              resizeMode="contain"
+            />
+          </View>
         </View>
       </SafeAreaView>
     </>
