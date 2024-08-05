@@ -13,6 +13,8 @@ import controlBar from "../assets/images/controlBar.png";
 import topTeam from "../assets/images/topTeam.png";
 import bottomTeam from "../assets/images/bottomTeam.png";
 import goalField from "../assets/images/goalField.png";
+import goalPost from "../assets/images/goalPost.png";
+import goalGrid from "../assets/images/goalGrid.png";
 
 export {
   field,
@@ -30,4 +32,6 @@ export {
   topTeam,
   bottomTeam,
   goalField,
+  goalPost,
+  goalGrid,
 };
