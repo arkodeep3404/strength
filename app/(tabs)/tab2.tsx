@@ -18,7 +18,7 @@ export default function Tab1() {
             className="w-[332px] h-[68px] absolute"
             resizeMode="contain"
           />
-          <Text className="absolute text-white text-5xl"> 0-0 </Text>
+          <Text className="absolute text-white text-5xl"> 0-1 </Text>
         </View>
 
         <View className="">

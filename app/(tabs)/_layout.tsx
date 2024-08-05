@@ -10,6 +10,13 @@ export default function TabLayout() {
             headerShown: false,
           }}
         />
+
+        <Stack.Screen
+          name="tab2"
+          options={{
+            headerShown: false,
+          }}
+        />
       </Stack>
     </>
   );
