@@ -10,6 +10,9 @@ import team3 from "../assets/images/team3.png";
 import keeper from "../assets/images/keeper.png";
 import teamBar from "../assets/images/teamBar.png";
 import controlBar from "../assets/images/controlBar.png";
+import topTeam from "../assets/images/topTeam.png";
+import bottomTeam from "../assets/images/bottomTeam.png";
+import goalField from "../assets/images/goalField.png";
 
 export {
   field,
@@ -23,5 +26,8 @@ export {
   team3,
   keeper,
   teamBar,
-  controlBar
+  controlBar,
+  topTeam,
+  bottomTeam,
+  goalField,
 };

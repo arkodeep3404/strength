@@ -17,8 +17,16 @@ export default function TabLayout() {
             headerShown: false,
           }}
         />
+
         <Stack.Screen
           name="tab3"
+          options={{
+            headerShown: false,
+          }}
+        />
+
+        <Stack.Screen
+          name="tab4"
           options={{
             headerShown: false,
           }}
