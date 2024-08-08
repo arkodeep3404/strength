@@ -5,26 +5,28 @@ import { field, teams, homescreen } from "../../exports/export";
 export default function Tab1() {
   return (
     <>
-      <SafeAreaView className="h-full">
-        <View className="flex justify-center items-center">
-          <Image
-            source={field}
-            className="w-full h-[250px]"
-            resizeMode="contain"
-          />
+      <SafeAreaView className="h-full w-full">
+        <View className="flex justify-center items-center h-full w-full">
+          <View className="flex justify-center items-center h-[30%] w-full">
+            <Image
+              source={field}
+              className="w-full h-full"
+              resizeMode="stretch"
+            />
 
-          <Image
-            source={teams}
-            className="w-[332px] h-[68px] absolute"
-            resizeMode="contain"
-          />
-          <Text className="absolute text-white text-5xl"> 0-0 </Text>
-        </View>
+            <View className="absolute w-full h-[full] flex justify-center items-center">
+              <Image
+                source={teams}
+                className="w-[332px] h-[68px]"
+                resizeMode="stretch"
+              />
+              <Text className="absolute text-white text-5xl"> 0-0 </Text>
+            </View>
+          </View>
 
-        <View>
           <Image
             source={homescreen}
-            className="h-[81%] w-full"
+            className="h-[70%] w-full"
             resizeMode="stretch"
           />
         </View>
