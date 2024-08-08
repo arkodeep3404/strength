@@ -5,24 +5,26 @@ import { turf, logo1, logo2 } from "../../exports/export";
 export default function Tab2() {
   return (
     <>
-      <SafeAreaView>
-        <View>
-          <Image
-            source={turf}
-            className="h-full w-full opacity-80"
-            resizeMode="stretch"
-          />
-          <View className="absolute h-full w-full flex items-center justify-evenly">
+      <SafeAreaView className="h-full w-full">
+        <View className="h-full w-full flex justify-center items-center bg-primary">
+          <View className="h-[80%] w-[90%]">
             <Image
-              source={logo1}
-              className="h-[195px] w-[163px]"
-              resizeMode="contain"
+              source={turf}
+              className="h-full w-full opacity-80"
+              resizeMode="stretch"
             />
-            <Image
-              source={logo2}
-              className="h-[195px] w-[163px]"
-              resizeMode="contain"
-            />
+            <View className="absolute h-full w-full flex items-center justify-evenly">
+              <Image
+                source={logo1}
+                className="h-[195px] w-[163px]"
+                resizeMode="contain"
+              />
+              <Image
+                source={logo2}
+                className="h-[195px] w-[163px]"
+                resizeMode="contain"
+              />
+            </View>
           </View>
         </View>
       </SafeAreaView>
