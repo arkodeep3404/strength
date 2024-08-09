@@ -1,6 +1,7 @@
-import { Image, View } from "react-native";
+import { Image, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { turf, logo1, logo2 } from "../../exports/export";
+import { router } from "expo-router";
 
 export default function Tab2() {
   return (
@@ -19,11 +20,13 @@ export default function Tab2() {
                 className="h-[195px] w-[163px]"
                 resizeMode="contain"
               />
-              <Image
-                source={logo2}
-                className="h-[195px] w-[163px]"
-                resizeMode="contain"
-              />
+              <TouchableOpacity onPress={() => router.push("/tab3")}>
+                <Image
+                  source={logo2}
+                  className="h-[195px] w-[163px]"
+                  resizeMode="contain"
+                />
+              </TouchableOpacity>
             </View>
           </View>
         </View>

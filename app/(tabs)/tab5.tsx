@@ -1,6 +1,6 @@
-import { Image, TouchableOpacity, View } from "react-native";
+import { Image, ImageBackground, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { goalPost, controlBar } from "../../exports/export";
+import { goalPost, goalFootball, controlBar } from "../../exports/export";
 import { useState } from "react";
 
 export default function Tab5() {
@@ -12,11 +12,18 @@ export default function Tab5() {
     return (
       <TouchableOpacity
         className={`h-28 w-20 border ${
-          selectedIndex === index ? "bg-red-500" : "border-white"
+          selectedIndex === index ? "" : "border-white"
         }`}
         key={index}
         onPress={() => setSelectedIndex(index)}
-      />
+      >
+        {selectedIndex === index && (
+          <ImageBackground
+            source={goalFootball}
+            style={{ width: "100%", height: "100%" }}
+          />
+        )}
+      </TouchableOpacity>
     );
   }
 

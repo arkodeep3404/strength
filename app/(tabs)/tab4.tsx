@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { Image, TouchableOpacity, View } from "react-native";
+import { Image, ImageBackground, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import {
   topTeam,
   bottomTeam,
   goalField,
+  football,
   controlBar,
 } from "../../exports/export";
 
@@ -17,11 +18,18 @@ export default function Tab4() {
     return (
       <TouchableOpacity
         className={`h-7 w-7 border ${
-          selectedIndex === index ? "bg-red-500" : "border-white"
+          selectedIndex === index ? "" : "border-white"
         }`}
         key={index}
         onPress={() => setSelectedIndex(index)}
-      />
+      >
+        {selectedIndex === index && (
+          <ImageBackground
+            source={football}
+            style={{ width: "100%", height: "100%" }}
+          />
+        )}
+      </TouchableOpacity>
     );
   }
 

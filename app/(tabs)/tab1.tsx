@@ -1,4 +1,4 @@
-import { Text, Image, View } from "react-native";
+import { Text, Image, View, TouchableOpacity } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import {
   field,
@@ -20,8 +20,44 @@ import {
   team_1,
   team_2,
 } from "../../exports/export";
+import { useEffect, useState } from "react";
+import { router } from "expo-router";
 
 export default function Tab1() {
+  function CountdownTimer({ duration }: { duration: number }) {
+    const [timeRemaining, setTimeRemaining] = useState(duration);
+
+    useEffect(() => {
+      const intervalId = setInterval(() => {
+        setTimeRemaining((prevTime) => {
+          if (prevTime <= 0) {
+            clearInterval(intervalId);
+            return 0;
+          }
+          return prevTime - 1;
+        });
+      }, 1000);
+
+      return () => clearInterval(intervalId);
+    }, []);
+
+    const formatTime = (seconds: number) => {
+      const hours = Math.floor(seconds / 3600);
+      const minutes = Math.floor((seconds % 3600) / 60);
+      const secs = seconds % 60;
+
+      return `${String(hours).padStart(2, "0")}:${String(minutes).padStart(
+        2,
+        "0"
+      )}:${String(secs).padStart(2, "0")}`;
+    };
+
+    return (
+      <Text className="text-white">
+        {timeRemaining > 0 ? formatTime(timeRemaining) : "Time's up!"}
+      </Text>
+    );
+  }
   return (
     <>
       <SafeAreaView className="h-full w-full">
@@ -50,16 +86,30 @@ export default function Tab1() {
 
           <View className="h-[70%] w-full">
             <View className="p-2 pt-5 flex flex-row items-center justify-evenly">
-              <Image
-                source={half}
-                className="h-[34px] w-[100px]"
-                resizeMode="stretch"
-              />
-              <Image
-                source={timer}
-                className="h-[54px] w-[140px]"
-                resizeMode="stretch"
-              />
+              <View className="h-[35px] w-[100px]">
+                <Image
+                  source={half}
+                  className="h-full w-full"
+                  resizeMode="stretch"
+                />
+                <View className="absolute w-full h-full flex items-center justify-center">
+                  <Text className="text-white text-base font-bold">
+                    1st Half
+                  </Text>
+                </View>
+              </View>
+
+              <View className="h-[55px] w-[140px]">
+                <Image
+                  source={timer}
+                  className="h-full w-full"
+                  resizeMode="stretch"
+                />
+                <View className="absolute w-full h-full flex items-center justify-center">
+                  <CountdownTimer duration={3600} />
+                </View>
+              </View>
+
               <Image
                 source={plus}
                 className="h-[35px] w-[40px]"
@@ -72,11 +122,13 @@ export default function Tab1() {
               />
             </View>
             <View className="p-2 pt-10 flex flex-row items-center justify-evenly">
-              <Image
-                source={goal}
-                className="h-[85px] w-[175px]"
-                resizeMode="stretch"
-              />
+              <TouchableOpacity onPress={() => router.push("/tab2")}>
+                <Image
+                  source={goal}
+                  className="h-[85px] w-[175px]"
+                  resizeMode="stretch"
+                />
+              </TouchableOpacity>
               <Image
                 source={attempt}
                 className="h-[85px] w-[175px]"
