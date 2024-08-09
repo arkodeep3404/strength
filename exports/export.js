@@ -42,12 +42,15 @@ import controlBar from "../assets/images/controlBar.png";
 import topTeam from "../assets/images/topTeam.png";
 import bottomTeam from "../assets/images/bottomTeam.png";
 import goalField from "../assets/images/goalField.png";
+
+//tab5
 import goalPost from "../assets/images/goalPost.png";
-import goalGrid from "../assets/images/goalGrid.png";
 
 export {
   //tab1
   field,
+  team_1,
+  team_2,
   attempt,
   card,
   corner,
@@ -88,8 +91,7 @@ export {
   topTeam,
   bottomTeam,
   goalField,
+
+  //tab5
   goalPost,
-  goalGrid,
-  team_1,
-  team_2,
 };
