@@ -18,7 +18,7 @@ export default function Tab4() {
     return (
       <TouchableOpacity
         className={`h-7 w-7 border ${
-          selectedIndex === index ? "" : "border-white"
+          selectedIndex === index ? "" : "border-[#A8A8A8]"
         }`}
         key={index}
         onPress={() => setSelectedIndex(index)}

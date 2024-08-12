@@ -5,5 +5,5 @@ export default function Index() {
 
   if (!rootNavigationState?.key) return null;
 
-  return <Redirect href={"/tab5"} />;
+  return <Redirect href={"/tab3"} />;
 }
