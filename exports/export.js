@@ -48,6 +48,16 @@ import football from "../assets/images/fieldFootball.png";
 import goalPost from "../assets/images/goalPost.png";
 import goalFootball from "../assets/images/goalFootball.png";
 
+//tab6
+import saved from "../assets/images/saved.png";
+import missed from "../assets/images/missed.png";
+
+//tab13
+import goal_2 from "../assets/images/goal_2.png";
+import saved_2 from "../assets/images/saved_2.png";
+import missed_2 from "../assets/images/missed_2.png";
+import cleared from "../assets/images/cleared.png";
+
 export {
   //tab1
   field,
@@ -98,4 +108,14 @@ export {
   //tab5
   goalPost,
   goalFootball,
+
+  //tab6
+  saved,
+  missed,
+
+  //tab13
+  goal_2,
+  saved_2,
+  missed_2,
+  cleared,
 };

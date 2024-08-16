@@ -122,18 +122,21 @@ export default function Tab1() {
               />
             </View>
             <View className="p-2 pt-10 flex flex-row items-center justify-evenly">
-              <TouchableOpacity onPress={() => router.push("/tab2")}>
+              <TouchableOpacity onPress={() => router.push("/goal/tab2")}>
                 <Image
                   source={goal}
                   className="h-[85px] w-[175px]"
                   resizeMode="stretch"
                 />
               </TouchableOpacity>
-              <Image
-                source={attempt}
-                className="h-[85px] w-[175px]"
-                resizeMode="stretch"
-              />
+
+              <TouchableOpacity onPress={() => router.push("/attempt/tab6")}>
+                <Image
+                  source={attempt}
+                  className="h-[85px] w-[175px]"
+                  resizeMode="stretch"
+                />
+              </TouchableOpacity>
             </View>
             <View className="p-2 flex flex-row items-center justify-evenly">
               <Image
@@ -141,16 +144,22 @@ export default function Tab1() {
                 className="h-[60px] w-[115px]"
                 resizeMode="stretch"
               />
-              <Image
-                source={throwIcon}
-                className="h-[60px] w-[115px]"
-                resizeMode="stretch"
-              />
-              <Image
-                source={corner}
-                className="h-[60px] w-[115px]"
-                resizeMode="stretch"
-              />
+
+              <TouchableOpacity onPress={() => router.push("/throw/tab9")}>
+                <Image
+                  source={throwIcon}
+                  className="h-[60px] w-[115px]"
+                  resizeMode="stretch"
+                />
+              </TouchableOpacity>
+
+              <TouchableOpacity onPress={() => router.push("/corner/tab11")}>
+                <Image
+                  source={corner}
+                  className="h-[60px] w-[115px]"
+                  resizeMode="stretch"
+                />
+              </TouchableOpacity>
             </View>
             <View className="p-2 flex flex-row items-center justify-evenly">
               <Image

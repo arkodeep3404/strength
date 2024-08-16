@@ -16,9 +16,10 @@ import {
   rahul,
   teamBar,
   controlBar,
-} from "../../exports/export";
+} from "../../../exports/export";
+import { router } from "expo-router";
 
-export default function Tab3() {
+export default function Tab10() {
   const [selectedPlayers, setSelectedPlayers] = useState(new Set());
 
   const toggleSelectPlayer = (player: string) => {
@@ -146,12 +147,22 @@ export default function Tab3() {
             resizeMode="stretch"
           />
         </View>
-        <View className="absolute flex h-full w-full items-end justify-end">
+        <View className="absolute flex h-full w-full justify-end">
           <Image
             source={controlBar}
             className="h-[10%] w-full"
             resizeMode="stretch"
           />
+          <View className="flex flex-row absolute h-[10%] w-full">
+            <TouchableOpacity
+              className="h-full w-[50%]"
+              onPress={() => router.push("/throw/tab9")}
+            />
+            <TouchableOpacity
+              className="h-full w-[50%]"
+              onPress={() => router.push("/tab1")}
+            />
+          </View>
         </View>
       </View>
     </SafeAreaView>

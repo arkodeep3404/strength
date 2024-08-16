@@ -11,33 +11,10 @@ export default function TabLayout() {
           }}
         />
 
-        <Stack.Screen
-          name="tab2"
-          options={{
-            headerShown: false,
-          }}
-        />
-
-        <Stack.Screen
-          name="tab3"
-          options={{
-            headerShown: false,
-          }}
-        />
-
-        <Stack.Screen
-          name="tab4"
-          options={{
-            headerShown: false,
-          }}
-        />
-
-        <Stack.Screen
-          name="tab5"
-          options={{
-            headerShown: false,
-          }}
-        />
+        <Stack.Screen name="goal" options={{ headerShown: false }} />
+        <Stack.Screen name="attempt" options={{ headerShown: false }} />
+        <Stack.Screen name="throw" options={{ headerShown: false }} />
+        <Stack.Screen name="corner" options={{ headerShown: false }} />
       </Stack>
     </>
   );

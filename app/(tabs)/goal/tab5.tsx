@@ -1,17 +1,18 @@
 import { Image, ImageBackground, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { goalPost, goalFootball, controlBar } from "../../exports/export";
+import { goalPost, goalFootball, controlBar } from "../../../exports/export";
 import { useState } from "react";
+import { router } from "expo-router";
 
 export default function Tab5() {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
   function renderGoalPostButton(rowIndex: number, buttonIndex: number) {
-    const index = rowIndex * 4 + buttonIndex;
+    const index = rowIndex * 6 + buttonIndex;
 
     return (
       <TouchableOpacity
-        className={`h-28 w-20 border ${
+        className={`h-[105px] w-[54px] border ${
           selectedIndex === index ? "" : "border-white"
         }`}
         key={index}
@@ -30,7 +31,7 @@ export default function Tab5() {
   function renderGoalPostButtonsRow(rowIndex: number) {
     return (
       <View className="flex flex-row" key={rowIndex}>
-        {Array.from({ length: 4 }, (_, i) => renderGoalPostButton(rowIndex, i))}
+        {Array.from({ length: 6 }, (_, i) => renderGoalPostButton(rowIndex, i))}
       </View>
     );
   }
@@ -45,7 +46,7 @@ export default function Tab5() {
               resizeMode="stretch"
             />
 
-            <View className="absolute h-full w-full inset-y-[43%] inset-x-[5%] flex flex-col">
+            <View className="absolute h-full w-full inset-y-[43.5%] inset-x-[5%] flex flex-col">
               {Array.from({ length: 2 }, (_, i) => renderGoalPostButtonsRow(i))}
             </View>
           </View>
@@ -56,6 +57,17 @@ export default function Tab5() {
               className="h-[10%] w-full"
               resizeMode="stretch"
             />
+
+            <View className="flex flex-row absolute h-[10%] w-full">
+              <TouchableOpacity
+                className="h-full w-[50%]"
+                onPress={() => router.push("/goal/tab4")}
+              />
+              <TouchableOpacity
+                className="h-full w-[50%]"
+                onPress={() => router.push("/tab1")}
+              />
+            </View>
           </View>
         </View>
       </SafeAreaView>

@@ -7,7 +7,8 @@ import {
   goalField,
   football,
   controlBar,
-} from "../../exports/export";
+} from "../../../exports/export";
+import { router } from "expo-router";
 
 export default function Tab4() {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
@@ -76,6 +77,17 @@ export default function Tab4() {
               className="h-[10%] w-full"
               resizeMode="stretch"
             />
+
+            <View className="flex flex-row absolute h-[10%] w-full">
+              <TouchableOpacity
+                className="h-full w-[50%]"
+                onPress={() => router.push("/goal/tab3")}
+              />
+              <TouchableOpacity
+                className="h-full w-[50%]"
+                onPress={() => router.push("/goal/tab5")}
+              />
+            </View>
           </View>
         </View>
       </SafeAreaView>
