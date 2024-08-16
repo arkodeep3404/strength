@@ -10,7 +10,7 @@
     "jsEngine": "hermes",
     "splash": {
       "image": "./assets/icon.png",
-      "resizeMode": "contain",
+      "resizeMode": "stretch",
       "backgroundColor": "#ffffff"
     },
     "ios": {

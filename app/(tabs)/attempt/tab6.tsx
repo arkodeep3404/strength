@@ -18,16 +18,16 @@ export default function Tab6() {
               <TouchableOpacity onPress={() => router.push("/attempt/tab7")}>
                 <Image
                   source={logo1}
-                  className="h-[195px] w-[163px]"
-                  resizeMode="contain"
+                  className="h-[195px] w-[165px]"
+                  resizeMode="stretch"
                 />
               </TouchableOpacity>
 
               <TouchableOpacity onPress={() => router.push("/attempt/tab7")}>
                 <Image
                   source={logo2}
-                  className="h-[195px] w-[163px]"
-                  resizeMode="contain"
+                  className="h-[195px] w-[165px]"
+                  resizeMode="stretch"
                 />
               </TouchableOpacity>
             </View>

@@ -58,6 +58,16 @@ import saved_2 from "../assets/images/saved_2.png";
 import missed_2 from "../assets/images/missed_2.png";
 import cleared from "../assets/images/cleared.png";
 
+//tab16
+import redCard from "../assets/images/redCard.png";
+import yellowCard from "../assets/images/yellowCard.png";
+
+//tab20
+import pandey from "../assets/images/pandey.png";
+import ritam from "../assets/images/ritam.png";
+import vasu from "../assets/images/vasu.png";
+import rakesh from "../assets/images/rakesh.png";
+
 export {
   //tab1
   field,
@@ -118,4 +128,14 @@ export {
   saved_2,
   missed_2,
   cleared,
+
+  //tab16
+  redCard,
+  yellowCard,
+
+  //tab20
+  pandey,
+  ritam,
+  vasu,
+  rakesh,
 };

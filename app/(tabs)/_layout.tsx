@@ -15,6 +15,9 @@ export default function TabLayout() {
         <Stack.Screen name="attempt" options={{ headerShown: false }} />
         <Stack.Screen name="throw" options={{ headerShown: false }} />
         <Stack.Screen name="corner" options={{ headerShown: false }} />
+        <Stack.Screen name="offside" options={{ headerShown: false }} />
+        <Stack.Screen name="card" options={{ headerShown: false }} />
+        <Stack.Screen name="substitution" options={{ headerShown: false }} />
       </Stack>
     </>
   );

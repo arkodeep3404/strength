@@ -162,16 +162,22 @@ export default function Tab1() {
               </TouchableOpacity>
             </View>
             <View className="p-2 flex flex-row items-center justify-evenly">
-              <Image
-                source={offside}
-                className="h-[60px] w-[115px]"
-                resizeMode="stretch"
-              />
-              <Image
-                source={card}
-                className="h-[60px] w-[115px]"
-                resizeMode="stretch"
-              />
+              <TouchableOpacity onPress={() => router.push("/offside/tab14")}>
+                <Image
+                  source={offside}
+                  className="h-[60px] w-[115px]"
+                  resizeMode="stretch"
+                />
+              </TouchableOpacity>
+
+              <TouchableOpacity onPress={() => router.push("/card/tab16")}>
+                <Image
+                  source={card}
+                  className="h-[60px] w-[115px]"
+                  resizeMode="stretch"
+                />
+              </TouchableOpacity>
+
               <Image
                 source={undo}
                 className="h-[60px] w-[115px]"
@@ -179,11 +185,16 @@ export default function Tab1() {
               />
             </View>
             <View className="p-2 flex flex-row items-center justify-evenly">
-              <Image
-                source={substitution}
-                className="h-[60px] w-[115px]"
-                resizeMode="stretch"
-              />
+              <TouchableOpacity
+                onPress={() => router.push("/substitution/tab19")}
+              >
+                <Image
+                  source={substitution}
+                  className="h-[60px] w-[115px]"
+                  resizeMode="stretch"
+                />
+              </TouchableOpacity>
+
               <Image
                 source={penalty}
                 className="h-[60px] w-[115px]"
