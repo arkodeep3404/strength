@@ -1,5 +1,9 @@
 import { Text, Image, View, TouchableOpacity } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useEffect, useState } from "react";
+import { router } from "expo-router";
+
 import {
   field,
   attempt,
@@ -20,26 +24,41 @@ import {
   team_1,
   team_2,
 } from "../../exports/export";
-import { useEffect, useState } from "react";
-import { router } from "expo-router";
 
 export default function Tab1() {
   function CountdownTimer({ duration }: { duration: number }) {
-    const [timeRemaining, setTimeRemaining] = useState(duration);
+    const [timeRemaining, setTimeRemaining] = useState<number | null>(null);
 
     useEffect(() => {
+      const loadTimeRemaining = async () => {
+        const savedTime = await AsyncStorage.getItem("timeRemaining");
+        if (savedTime !== null) {
+          setTimeRemaining(Number(savedTime));
+        } else {
+          setTimeRemaining(duration);
+        }
+      };
+
+      loadTimeRemaining();
+    }, [duration]);
+
+    useEffect(() => {
+      if (timeRemaining === null) return;
+
       const intervalId = setInterval(() => {
         setTimeRemaining((prevTime) => {
-          if (prevTime <= 0) {
+          if (prevTime === null || prevTime <= 0) {
             clearInterval(intervalId);
             return 0;
           }
-          return prevTime - 1;
+          const newTime = prevTime - 1;
+          AsyncStorage.setItem("timeRemaining", newTime.toString());
+          return newTime;
         });
       }, 1000);
 
       return () => clearInterval(intervalId);
-    }, []);
+    }, [timeRemaining]);
 
     const formatTime = (seconds: number) => {
       const hours = Math.floor(seconds / 3600);
@@ -54,10 +73,13 @@ export default function Tab1() {
 
     return (
       <Text className="text-white">
-        {timeRemaining > 0 ? formatTime(timeRemaining) : "Time's up!"}
+        {timeRemaining !== null && timeRemaining > 0
+          ? formatTime(timeRemaining)
+          : "Time's up!"}
       </Text>
     );
   }
+
   return (
     <>
       <SafeAreaView className="h-full w-full">
@@ -106,7 +128,7 @@ export default function Tab1() {
                   resizeMode="stretch"
                 />
                 <View className="absolute w-full h-full flex items-center justify-center">
-                  <CountdownTimer duration={3600} />
+                  <CountdownTimer duration={10} />
                 </View>
               </View>
 
