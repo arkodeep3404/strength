@@ -20,8 +20,8 @@ import undo from "../assets/images/undo.png";
 
 //tab2
 import turf from "../assets/images/turf.png";
-import logo1 from "../assets/images/logo1.png";
-import logo2 from "../assets/images/logo2.png";
+import logo_1 from "../assets/images/logo_1.png";
+import logo_2 from "../assets/images/logo_2.png";
 
 //tab3
 import riyan from "../assets/images/riyan.png";
@@ -68,6 +68,23 @@ import ritam from "../assets/images/ritam.png";
 import vasu from "../assets/images/vasu.png";
 import rakesh from "../assets/images/rakesh.png";
 
+//tab23
+import goal_3 from "../assets/images/goal_3.png";
+import saved_3 from "../assets/images/saved_3.png";
+import missed_3 from "../assets/images/missed_3.png";
+
+//tab26
+import direct from "../assets/images/direct.png";
+import indirect from "../assets/images/indirect.png";
+
+//tab30
+import tackle from "../assets/images/tackle.png";
+import handball from "../assets/images/handball.png";
+import others from "../assets/images/others.png";
+
+//tab31
+import noCard from "../assets/images/noCard.png";
+
 export {
   //tab1
   field,
@@ -91,8 +108,8 @@ export {
 
   //tab2
   turf,
-  logo1,
-  logo2,
+  logo_1,
+  logo_2,
 
   //tab3
   riyan,
@@ -138,4 +155,21 @@ export {
   ritam,
   vasu,
   rakesh,
+
+  //tab23
+  goal_3,
+  saved_3,
+  missed_3,
+
+  //tab26
+  direct,
+  indirect,
+
+  //tab30
+  tackle,
+  handball,
+  others,
+
+  //tab31
+  noCard,
 };

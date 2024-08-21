@@ -1,6 +1,6 @@
 import { Image, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { turf, logo1, logo2 } from "../../../exports/export";
+import { turf, logo_1, logo_2 } from "../../../exports/export";
 import { router } from "expo-router";
 
 export default function Tab9() {
@@ -17,7 +17,7 @@ export default function Tab9() {
             <View className="absolute h-full w-full flex items-center justify-evenly">
               <TouchableOpacity onPress={() => router.push("/throw/tab10")}>
                 <Image
-                  source={logo1}
+                  source={logo_1}
                   className="h-[195px] w-[165px]"
                   resizeMode="stretch"
                 />
@@ -25,7 +25,7 @@ export default function Tab9() {
 
               <TouchableOpacity onPress={() => router.push("/throw/tab10")}>
                 <Image
-                  source={logo2}
+                  source={logo_2}
                   className="h-[195px] w-[165px]"
                   resizeMode="stretch"
                 />

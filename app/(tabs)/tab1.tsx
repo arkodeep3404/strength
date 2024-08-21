@@ -26,14 +26,20 @@ import {
 } from "../../exports/export";
 
 export default function Tab1() {
-  function CountdownTimer({ duration }: { duration: number }) {
-    const [timeRemaining, setTimeRemaining] = useState<number | null>(null);
+  const [timeRemaining, setTimeRemaining] = useState<number | null>(null);
+  const [isPaused, setIsPaused] = useState(false);
 
+  function CountdownTimer({ duration }: { duration: number }) {
     useEffect(() => {
       const loadTimeRemaining = async () => {
         const savedTime = await AsyncStorage.getItem("timeRemaining");
         if (savedTime !== null) {
-          setTimeRemaining(Number(savedTime));
+          const savedTimeNum = Number(savedTime);
+          if (savedTimeNum > 0) {
+            setTimeRemaining(savedTimeNum);
+          } else {
+            setTimeRemaining(0);
+          }
         } else {
           setTimeRemaining(duration);
         }
@@ -43,22 +49,27 @@ export default function Tab1() {
     }, [duration]);
 
     useEffect(() => {
-      if (timeRemaining === null) return;
+      let intervalId: NodeJS.Timeout;
 
-      const intervalId = setInterval(() => {
-        setTimeRemaining((prevTime) => {
-          if (prevTime === null || prevTime <= 0) {
-            clearInterval(intervalId);
-            return 0;
-          }
-          const newTime = prevTime - 1;
-          AsyncStorage.setItem("timeRemaining", newTime.toString());
-          return newTime;
-        });
-      }, 1000);
+      if (timeRemaining !== null && timeRemaining > 0 && !isPaused) {
+        intervalId = setInterval(() => {
+          setTimeRemaining((prevTime) => {
+            if (prevTime === null || prevTime <= 0) {
+              clearInterval(intervalId);
+              AsyncStorage.setItem("timeRemaining", "0");
+              return 0;
+            }
+            const newTime = prevTime - 1;
+            AsyncStorage.setItem("timeRemaining", newTime.toString());
+            return newTime;
+          });
+        }, 1000);
+      }
 
-      return () => clearInterval(intervalId);
-    }, [timeRemaining]);
+      return () => {
+        clearInterval(intervalId);
+      };
+    }, [timeRemaining, isPaused]);
 
     const formatTime = (seconds: number) => {
       const hours = Math.floor(seconds / 3600);
@@ -72,13 +83,27 @@ export default function Tab1() {
     };
 
     return (
-      <Text className="text-white">
-        {timeRemaining !== null && timeRemaining > 0
-          ? formatTime(timeRemaining)
-          : "Time's up!"}
-      </Text>
+      <View>
+        <Text className="text-white">
+          {timeRemaining !== null && timeRemaining > 0
+            ? formatTime(timeRemaining)
+            : "Time's up!"}
+        </Text>
+      </View>
     );
   }
+
+  const handlePausePlay = () => {
+    setIsPaused(!isPaused);
+  };
+
+  const handleAddTime = (secondsToAdd: number) => {
+    setTimeRemaining((prevTime) => {
+      const newTime = (prevTime !== null ? prevTime : 0) + secondsToAdd;
+      AsyncStorage.setItem("timeRemaining", newTime.toString());
+      return newTime;
+    });
+  };
 
   return (
     <>
@@ -132,16 +157,23 @@ export default function Tab1() {
                 </View>
               </View>
 
-              <Image
-                source={plus}
-                className="h-[35px] w-[40px]"
-                resizeMode="stretch"
-              />
-              <Image
-                source={pause}
-                className="h-[35px] w-[40px]"
-                resizeMode="stretch"
-              />
+              <TouchableOpacity onPress={() => handleAddTime(5)}>
+                {/* add time */}
+                <Image
+                  source={plus}
+                  className="h-[35px] w-[40px]"
+                  resizeMode="stretch"
+                />
+              </TouchableOpacity>
+
+              <TouchableOpacity onPress={handlePausePlay}>
+                {/* pause/play */}
+                <Image
+                  source={pause}
+                  className="h-[35px] w-[40px]"
+                  resizeMode="stretch"
+                />
+              </TouchableOpacity>
             </View>
             <View className="p-2 pt-10 flex flex-row items-center justify-evenly">
               <TouchableOpacity onPress={() => router.push("/goal/tab2")}>
@@ -161,11 +193,13 @@ export default function Tab1() {
               </TouchableOpacity>
             </View>
             <View className="p-2 flex flex-row items-center justify-evenly">
-              <Image
-                source={foul}
-                className="h-[60px] w-[115px]"
-                resizeMode="stretch"
-              />
+              <TouchableOpacity onPress={() => router.push("/foul/tab28")}>
+                <Image
+                  source={foul}
+                  className="h-[60px] w-[115px]"
+                  resizeMode="stretch"
+                />
+              </TouchableOpacity>
 
               <TouchableOpacity onPress={() => router.push("/throw/tab9")}>
                 <Image
@@ -217,16 +251,21 @@ export default function Tab1() {
                 />
               </TouchableOpacity>
 
-              <Image
-                source={penalty}
-                className="h-[60px] w-[115px]"
-                resizeMode="stretch"
-              />
-              <Image
-                source={freekick}
-                className="h-[60px] w-[115px]"
-                resizeMode="stretch"
-              />
+              <TouchableOpacity onPress={() => router.push("/penalty/tab21")}>
+                <Image
+                  source={penalty}
+                  className="h-[60px] w-[115px]"
+                  resizeMode="stretch"
+                />
+              </TouchableOpacity>
+
+              <TouchableOpacity onPress={() => router.push("/freekick/tab24")}>
+                <Image
+                  source={freekick}
+                  className="h-[60px] w-[115px]"
+                  resizeMode="stretch"
+                />
+              </TouchableOpacity>
             </View>
           </View>
         </View>
